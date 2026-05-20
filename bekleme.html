@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temiz — Bekleme Listesi</title>
-  <meta name="description" content="Türkiye için AI gıda etiketi tarayıcı. Helal, spor ve çocuk modu ile paketli ürünleri tara, ne yediğini anla.">
+  <meta name="description" content="Türkiye için yapay zeka destekli paketli gıda etiketi tarayıcı. Helal, spor ve çocuk modu ile paketli ürünleri tara, ne yediğini anla.">
   <style>
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
@@ -25,22 +25,40 @@
       text-align: center;
     }
     .logo {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: 4px;
-      margin-bottom: 24px;
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 20px;
+      display: block;
+      border-radius: 22px;
+    }
+    .brand-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #7D8F82;
+      margin-top: 16px;
+      margin-bottom: 8px;
     }
     h1 {
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 28px;
+      font-weight: 800;
       margin: 0 0 12px;
-      line-height: 1.3;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
     }
-    .subtitle {
+    .tagline {
       font-size: 15px;
+      color: #4B5563;
+      margin: 0 0 18px;
+      line-height: 1.5;
+    }
+    .modes {
+      font-size: 14px;
       color: #7D8F82;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
+      letter-spacing: 0.2px;
     }
     .desc {
       font-size: 15px;
@@ -141,9 +159,11 @@
 </head>
 <body>
   <div class="card">
-    <div class="logo">TEMİZ</div>
-    <h1>Türkiye için AI gıda etiketi tarayıcı</h1>
-    <div class="subtitle">Helal · Spor · Çocuk modu</div>
+    <img src="/logo.png" alt="Temiz" class="logo" width="112" height="112">
+    <div class="brand-name">TEMİZ</div>
+    <h1>Ne yediğini biliyor musun?</h1>
+    <p class="tagline">Türkiye için yapay zeka destekli paketli gıda etiketi tarayıcı</p>
+    <div class="modes">Helal · Spor · Çocuk modu</div>
     <p class="desc">Paketli ürünleri tara, ne yediğini anla. Lansmana hazırlanıyoruz — ilk haberdar olmak için kaydol.</p>
 
     <div id="count" class="count hidden"></div>
