@@ -4,47 +4,265 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temiz — Kullanım Koşulları</title>
+  <meta name="description" content="Temiz mobil uygulaması ve gettemiz.com web sayfalarının kullanım koşulları.">
+  <meta property="og:title" content="Temiz — Kullanım Koşulları">
+  <meta property="og:description" content="Temiz mobil uygulaması ve gettemiz.com kullanım koşulları.">
+  <meta property="og:image" content="https://gettemiz.com/logo.png">
+  <meta property="og:type" content="article">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="canonical" href="https://gettemiz.com/terms.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 680px; margin: 0 auto; padding: 24px; color: #1F2937; line-height: 1.7; }
-    h1 { font-size: 24px; margin-bottom: 8px; }
-    h2 { font-size: 18px; margin-top: 32px; }
-    .meta { color: #6B7280; font-size: 14px; margin-bottom: 32px; }
-    a { color: #78867B; }
+    :root {
+      --bg: #F5F5F0;
+      --bg-soft: #FBFBF6;
+      --ink: #1C1C1E;
+      --ink-soft: #2A2A2D;
+      --body: #2F3338;
+      --muted: #4B5563;
+      --muted-soft: #6B7280;
+      --hairline: #E5E5DC;
+      --hairline-strong: #D6D6CB;
+      --sage: #7D8F82;
+      --sage-deep: #5C6E61;
+      --sage-soft: rgba(125, 143, 130, 0.08);
+      --sage-border: rgba(125, 143, 130, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-feature-settings: 'ss01', 'cv11';
+      background: var(--bg);
+      color: var(--body);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.3;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.11 0 0 0 0 0.12 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90vw;
+      height: 700px;
+      max-width: 1000px;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(ellipse 50% 60% at center, rgba(125, 143, 130, 0.12) 0%, rgba(125, 143, 130, 0) 70%);
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 3;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 24px 0;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      padding: 6px 12px 6px 8px;
+      border-radius: 999px;
+      transition: background 180ms ease;
+    }
+    .brand-link:hover { background: var(--sage-soft); }
+    .brand-link img {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: block;
+    }
+    .brand-link .arrow {
+      color: var(--muted-soft);
+      margin-right: 2px;
+      font-weight: 500;
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin: 0 0 18px;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 48px 0 14px;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+
+    p {
+      margin: 14px 0;
+      max-width: 65ch;
+      text-wrap: pretty;
+    }
+
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 12.5px;
+      color: var(--muted-soft);
+      padding: 12px 0;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      margin: 24px 0 40px;
+      letter-spacing: -0.005em;
+    }
+    .meta-bar strong { color: var(--ink); font-weight: 500; }
+    .meta-bar .dot { color: var(--hairline-strong); }
+
+    strong { color: var(--ink); font-weight: 600; }
+
+    a {
+      color: var(--sage-deep);
+      text-decoration: underline;
+      text-decoration-color: rgba(92, 110, 97, 0.3);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: text-decoration-color 150ms ease, color 150ms ease;
+    }
+    a:hover {
+      text-decoration-color: var(--sage-deep);
+      color: var(--ink);
+    }
+
+    .footer {
+      margin-top: 64px;
+      padding: 24px;
+      border-radius: 14px;
+      background: var(--sage-soft);
+      border: 1px solid var(--sage-border);
+      font-size: 13.5px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.7;
+    }
+    .footer a {
+      color: var(--sage-deep);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+      color: var(--ink);
+    }
+    .footer-sep { color: var(--hairline-strong); margin: 0 6px; }
+
+    @media (min-width: 640px) {
+      main { padding: 40px 24px 80px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
   </style>
 </head>
+
 <body>
-  <h1>Kullanım Koşulları</h1>
-  <p class="meta">Son güncelleme: 19 Mayıs 2026 | Temiz — Daha temiz seç.</p>
+  <header class="topbar">
+    <a href="/" class="brand-link" aria-label="Ana sayfaya dön">
+      <span class="arrow" aria-hidden="true">←</span>
+      <img src="logo.png" alt="" width="28" height="28">
+      <span>Temiz</span>
+    </a>
+  </header>
 
-  <h2>1. Kapsam</h2>
-  <p>Bu koşullar Temiz mobil uygulaması ve gettemiz.com web sayfalarının kullanımını düzenler. Uygulamayı kullanarak bu koşulları kabul etmiş sayılırsınız.</p>
+  <main>
+    <article>
+      <h1>Kullanım Koşulları</h1>
+      <div class="meta-bar">
+        <span><strong>Son güncelleme:</strong> 19 Mayıs 2026</span>
+        <span class="dot">·</span>
+        <span>Temiz — Daha temiz seç.</span>
+      </div>
 
-  <h2>2. Sağlık ve Beslenme Uyarısı</h2>
-  <p>Temiz, gıda etiketlerini ve ürün verilerini anlaşılır hale getirmeye yardımcı olan bilgilendirici bir araçtır. Uygulama tıbbi teşhis, tedavi, diyet reçetesi veya profesyonel sağlık tavsiyesi sunmaz. Alerji, hastalık, hamilelik, çocuk beslenmesi veya özel diyet durumlarında doktor, diyetisyen ya da ilgili uzman görüşü alınmalıdır.</p>
+      <h2>1. Kapsam</h2>
+      <p>Bu koşullar Temiz mobil uygulaması ve gettemiz.com web sayfalarının kullanımını düzenler. Uygulamayı kullanarak bu koşulları kabul etmiş sayılırsınız.</p>
 
-  <h2>3. Veri ve Analiz Doğruluğu</h2>
-  <p>Ürün bilgileri üretici beyanları, kamuya açık veri kaynakları, kullanıcı tarafından girilen bilgiler ve otomatik analizlerden oluşabilir. Etiketler değişebilir; satın alma ve tüketim kararından önce ürün ambalajındaki güncel bilgileri kontrol etmek kullanıcının sorumluluğundadır.</p>
+      <h2>2. Sağlık ve Beslenme Uyarısı</h2>
+      <p>Temiz, gıda etiketlerini ve ürün verilerini anlaşılır hale getirmeye yardımcı olan bilgilendirici bir araçtır. Uygulama tıbbi teşhis, tedavi, diyet reçetesi veya profesyonel sağlık tavsiyesi sunmaz. Alerji, hastalık, hamilelik, çocuk beslenmesi veya özel diyet durumlarında doktor, diyetisyen ya da ilgili uzman görüşü alınmalıdır.</p>
 
-  <h2>4. Hesap Kullanımı</h2>
-  <p>Hesap bilgilerinizin güvenliğinden siz sorumlusunuz. Yanlış, hukuka aykırı veya başkasına ait bilgilerle hesap oluşturulmamalıdır. Temiz, kötüye kullanım, güvenlik riski veya yasal zorunluluk halinde hesap erişimini sınırlandırabilir.</p>
+      <h2>3. Veri ve Analiz Doğruluğu</h2>
+      <p>Ürün bilgileri üretici beyanları, kamuya açık veri kaynakları, kullanıcı tarafından girilen bilgiler ve otomatik analizlerden oluşabilir. Etiketler değişebilir; satın alma ve tüketim kararından önce ürün ambalajındaki güncel bilgileri kontrol etmek kullanıcının sorumluluğundadır.</p>
 
-  <h2>5. Kabul Edilebilir Kullanım</h2>
-  <p>Uygulama; tersine mühendislik, otomatik scraping, yetkisiz erişim, servis kesintisi yaratma veya yanıltıcı veri gönderme amacıyla kullanılamaz. Admin veya ingest uç noktalarına yalnızca yetkili kullanıcılar erişebilir.</p>
+      <h2>4. Hesap Kullanımı</h2>
+      <p>Hesap bilgilerinizin güvenliğinden siz sorumlusunuz. Yanlış, hukuka aykırı veya başkasına ait bilgilerle hesap oluşturulmamalıdır. Temiz, kötüye kullanım, güvenlik riski veya yasal zorunluluk halinde hesap erişimini sınırlandırabilir.</p>
 
-  <h2>6. Fikri Haklar</h2>
-  <p>Temiz adı, arayüz tasarımları, metinleri ve uygulama bileşenleri ilgili hak sahiplerine aittir. Uygulama yalnızca kişisel ve hukuka uygun kullanım için sunulur.</p>
+      <h2>5. Kabul Edilebilir Kullanım</h2>
+      <p>Uygulama; tersine mühendislik, otomatik scraping, yetkisiz erişim, servis kesintisi yaratma veya yanıltıcı veri gönderme amacıyla kullanılamaz. Admin veya ingest uç noktalarına yalnızca yetkili kullanıcılar erişebilir.</p>
 
-  <h2>7. Sorumluluğun Sınırı</h2>
-  <p>Temiz, ürün verilerindeki hata, eksiklik, gecikme veya üçüncü taraf kaynaklardan doğabilecek yanlışlıklar nedeniyle oluşabilecek dolaylı zararlardan sorumlu değildir. Uygulama "olduğu gibi" sunulur.</p>
+      <h2>6. Fikri Haklar</h2>
+      <p>Temiz adı, arayüz tasarımları, metinleri ve uygulama bileşenleri ilgili hak sahiplerine aittir. Uygulama yalnızca kişisel ve hukuka uygun kullanım için sunulur.</p>
 
-  <h2>8. Gizlilik</h2>
-  <p>Kişisel verilerin işlenmesine ilişkin bilgiler <a href="/privacy.html">Gizlilik Politikası</a> sayfasında açıklanır.</p>
+      <h2>7. Sorumluluğun Sınırı</h2>
+      <p>Temiz, ürün verilerindeki hata, eksiklik, gecikme veya üçüncü taraf kaynaklardan doğabilecek yanlışlıklar nedeniyle oluşabilecek dolaylı zararlardan sorumlu değildir. Uygulama "olduğu gibi" sunulur.</p>
 
-  <h2>9. Değişiklikler</h2>
-  <p>Bu koşullar zaman zaman güncellenebilir. Önemli değişiklikler uygulama veya web sitesi üzerinden duyurulur.</p>
+      <h2>8. Gizlilik</h2>
+      <p>Kişisel verilerin işlenmesine ilişkin bilgiler <a href="privacy.html">Gizlilik Politikası</a> sayfasında açıklanır.</p>
 
-  <h2>10. İletişim</h2>
-  <p>Sorularınız için <a href="mailto:info@gettemiz.com">info@gettemiz.com</a> adresine yazabilirsiniz.</p>
-  <p><a href="/privacy.html">Gizlilik Politikası</a> &nbsp;|&nbsp; <a href="/delete-account.html">Hesap Silme</a> &nbsp;|&nbsp; <a href="/">Ana Sayfa</a></p>
+      <h2>9. Değişiklikler</h2>
+      <p>Bu koşullar zaman zaman güncellenebilir. Önemli değişiklikler uygulama veya web sitesi üzerinden duyurulur.</p>
+
+      <h2>10. İletişim</h2>
+      <p>Sorularınız için <a href="mailto:info@gettemiz.com">info@gettemiz.com</a> adresine yazabilirsiniz.</p>
+    </article>
+
+    <footer class="footer">
+      <a href="privacy.html">Gizlilik Politikası</a>
+      <span class="footer-sep">·</span>
+      <a href="metodoloji.html">Metodoloji</a>
+      <span class="footer-sep">·</span>
+      <a href="delete-account.html">Hesap Silme</a>
+      <span class="footer-sep">·</span>
+      <a href="/">Ana Sayfa</a>
+    </footer>
+  </main>
 </body>
 </html>
