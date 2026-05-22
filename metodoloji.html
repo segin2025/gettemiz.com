@@ -1,29 +1,93 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temiz — Skor Metodolojisi</title>
-  <meta name="description" content="Temiz uygulamasının ürün skorlarını nasıl hesapladığı: Helal, Spor ve Çocuk modlarının gerçek çalışma mantığı.">
+  <meta name="description"
+    content="Temiz uygulamasının ürün skorlarını nasıl hesapladığı: Helal, Spor ve Çocuk modlarının gerçek çalışma mantığı.">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 24px; color: #1F2937; line-height: 1.7; }
-    h1 { font-size: 26px; margin-bottom: 8px; color: #1A1A1A; letter-spacing: -0.5px; }
-    h2 { font-size: 19px; margin-top: 36px; color: #1A1A1A; letter-spacing: -0.3px; }
-    h3 { font-size: 16px; margin-top: 24px; color: #1A1A1A; }
-    .meta { color: #6B7280; font-size: 14px; margin-bottom: 32px; }
-    p { margin: 12px 0; }
-    ul { padding-left: 22px; }
-    li { margin: 6px 0; }
-    strong { color: #1A1A1A; font-weight: 700; }
-    hr { border: none; border-top: 1px solid #E5E7EB; margin: 36px 0; }
-    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #E5E7EB; font-size: 13px; color: #9CA3AF; }
-    .footer a { color: #5B8B7A; }
-    a { color: #5B8B7A; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px;
+      color: #1F2937;
+      line-height: 1.7;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+      color: #1A1A1A;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      font-size: 19px;
+      margin-top: 36px;
+      color: #1A1A1A;
+      letter-spacing: -0.3px;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin-top: 24px;
+      color: #1A1A1A;
+    }
+
+    .meta {
+      color: #6B7280;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    p {
+      margin: 12px 0;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    strong {
+      color: #1A1A1A;
+      font-weight: 700;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #E5E7EB;
+      margin: 36px 0;
+    }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #E5E7EB;
+      font-size: 13px;
+      color: #9CA3AF;
+    }
+
+    .footer a {
+      color: #5B8B7A;
+    }
+
+    a {
+      color: #5B8B7A;
+    }
   </style>
 </head>
+
 <body>
   <h1>Skorları Nasıl Hesaplıyoruz?</h1>
-  <p>Temiz, ürün ambalajındaki üretici beyanlarını okur ve açık akademik standartlara göre değerlendirir. Bu sayfa, kullandığımız tüm yöntemleri ve sınırlamaları şeffaf biçimde açıklamak için yazılmıştır.</p>
+  <p>Temiz, ürün ambalajındaki üretici beyanlarını okur ve açık akademik standartlara göre değerlendirir. Bu sayfa,
+    kullandığımız tüm yöntemleri ve sınırlamaları şeffaf biçimde açıklamak için yazılmıştır.</p>
   <p class="meta"><strong>Son güncelleme:</strong> 29 Nisan 2026 &nbsp; | &nbsp; <strong>Versiyon:</strong> 1.0.0</p>
 
   <hr>
@@ -31,27 +95,41 @@
   <h2>Genel İlkeler</h2>
   <p>Her ürün için değerlendirme yaparken üç ana kaynaktan besleniriz:</p>
   <ul>
-    <li><strong>Üretici paket beyanı</strong> — Üreticinin ambalajda yazmak zorunda olduğu içerik listesi, beslenme tablosu ve sertifikasyon bilgileri.</li>
-    <li><strong>Açık akademik standartlar</strong> — NOVA sınıflandırması, EFSA katkı maddeleri listesi, Diyanet İşleri Başkanlığı içtihadı, Türk Pediatri Kurumu rehberleri gibi peer-reviewed veya kamu otoritesi onaylı kaynaklar.</li>
-    <li><strong>Türkiye'ye özgü doğrulama</strong> — Helal sertifikasyon kuruluşlarının kamuya açık verileri, Türk Gıda Kodeksi.</li>
+    <li><strong>Üretici paket beyanı</strong> — Üreticinin ambalajda yazmak zorunda olduğu içerik listesi, beslenme
+      tablosu ve sertifikasyon bilgileri.</li>
+    <li><strong>Açık akademik standartlar</strong> — NOVA sınıflandırması, EFSA katkı maddeleri listesi, Diyanet İşleri
+      Başkanlığı içtihadı, Türk Pediatri Kurumu rehberleri gibi peer-reviewed veya kamu otoritesi onaylı kaynaklar.</li>
+    <li><strong>Türkiye'ye özgü doğrulama</strong> — Helal sertifikasyon kuruluşlarının kamuya açık verileri, Türk Gıda
+      Kodeksi.</li>
   </ul>
   <p>Temiz'in <strong>kendi sübjektif yorumu</strong> değerlendirmeye dahil edilmez.</p>
 
   <hr>
 
   <h2>Üç Modumuz</h2>
-  <p>Temiz üç farklı analiz modu sunar. Her modun kendine özgü bir değerlendirme mantığı vardır. Aşağıda her modun <strong>gerçek çalışma mantığını</strong> açıklıyoruz.</p>
+  <p>Temiz üç farklı analiz modu sunar. Her modun kendine özgü bir değerlendirme mantığı vardır. Aşağıda her modun
+    <strong>gerçek çalışma mantığını</strong> açıklıyoruz.</p>
 
   <h2>Helal Modu</h2>
   <p><strong>Hedef kitle:</strong> Helal hassasiyeti olan kullanıcılar.</p>
   <p><strong>Nasıl çalışır:</strong></p>
   <p>Helal modu ürünü iki ana boyutta değerlendirir:</p>
   <ul>
-    <li><strong>İçerik sınıflandırması</strong> — Ürünün içerik listesindeki her bileşen, üç kategoriden birine atanır. <strong>HARAM:</strong> domuz türevi (jelatin, gliserin, mono/digliserid kaynağı domuz olduğu kesin), alkol türevi katkı maddeleri ve benzeri kesin haram bileşenler. <strong>ŞÜPHELİ:</strong> kaynağı belirsiz jelatin, kaynağı belirtilmemiş mono/digliseridler (E-471, E-472), kaynağı belirsiz emülgatörler ve benzeri içtihadi tartışmalı bileşenler. <strong>HELAL:</strong> bitkisel kaynaklı veya kesin helal olduğu belirlenmiş bileşenler. Sınıflandırma listemiz Diyanet İşleri Başkanlığı'nın Hanefi ve Şafii fıkıh içtihadına dayanır.</li>
-    <li><strong>Sertifikasyon ipucu</strong> — Üretici ambalajda GİMDES, TSE Helal veya HAK gibi tanınmış sertifikasyon kuruluşunun adını veya sertifika numarasını belirtmişse, bu bilgi sonuç notunda gösterilir.</li>
+    <li><strong>İçerik sınıflandırması</strong> — Ürünün içerik listesindeki her bileşen, üç kategoriden birine atanır.
+      <strong>HARAM:</strong> domuz türevi (jelatin, gliserin, mono/digliserid kaynağı domuz olduğu kesin), alkol türevi
+      katkı maddeleri ve benzeri kesin haram bileşenler. <strong>ŞÜPHELİ:</strong> kaynağı belirsiz jelatin, kaynağı
+      belirtilmemiş mono/digliseridler (E-471, E-472), kaynağı belirsiz emülgatörler ve benzeri içtihadi tartışmalı
+      bileşenler. <strong>HELAL:</strong> bitkisel kaynaklı veya kesin helal olduğu belirlenmiş bileşenler.
+      Sınıflandırma listemiz Diyanet İşleri Başkanlığı'nın Hanefi ve Şafii fıkıh içtihadına dayanır.</li>
+    <li><strong>Sertifikasyon ipucu</strong> — Üretici ambalajda GİMDES, TSE Helal veya HAK gibi tanınmış sertifikasyon
+      kuruluşunun adını veya sertifika numarasını belirtmişse, bu bilgi sonuç notunda gösterilir.</li>
   </ul>
-  <p><strong>Çıktı:</strong> HELAL, ŞÜPHELİ veya HARAM sınıfı + güven skoru (0-100). Güven skoru, içerik listesinin ne kadar net okunabildiğini ve sınıflandırmanın ne kadar kesin olduğunu gösterir.</p>
-  <p><strong>Önemli sınırlama:</strong> Temiz <strong>sertifikasyon kuruluşu değildir</strong>. Çıktımız sınıflandırmadır, fetva değildir. Dini hassasiyetiniz için son kararı vermeden önce <strong>üreticiye veya ilgili sertifikasyon kuruluşuna doğrulamanızı öneririz</strong>. Özellikle ŞÜPHELİ sonuç aldığınız ürünlerde üretici beyanı zorunludur.</p>
+  <p><strong>Çıktı:</strong> HELAL, ŞÜPHELİ veya HARAM sınıfı + güven skoru (0-100). Güven skoru, içerik listesinin ne
+    kadar net okunabildiğini ve sınıflandırmanın ne kadar kesin olduğunu gösterir.</p>
+  <p><strong>Önemli sınırlama:</strong> Temiz <strong>sertifikasyon kuruluşu değildir</strong>. Çıktımız
+    sınıflandırmadır, fetva değildir. Dini hassasiyetiniz için son kararı vermeden önce <strong>üreticiye veya ilgili
+      sertifikasyon kuruluşuna doğrulamanızı öneririz</strong>. Özellikle ŞÜPHELİ sonuç aldığınız ürünlerde üretici
+    beyanı zorunludur.</p>
   <p><strong>Kaynaklar:</strong></p>
   <ul>
     <li>Diyanet İşleri Başkanlığı — Helal Gıda İlmihali</li>
@@ -63,14 +141,20 @@
   <h2>Spor Modu</h2>
   <p><strong>Hedef kitle:</strong> Düzenli spor yapan, beslenmesini hedefe göre takip eden kullanıcılar.</p>
   <p><strong>Nasıl çalışır:</strong></p>
-  <p>Spor modu <strong>kullanıcının seçtiği hedefe göre</strong> farklı kural seti uygular. Aynı ürün, "kas kazanımı" hedefiyle farklı, "yağ yakımı" hedefiyle farklı puan alabilir.</p>
-  <p>Değerlendirme yöntemi: <strong>Taban skor 50</strong> olarak başlar. Hedefe özel kurallar pozitif veya negatif yönde değerleri ayarlar.</p>
+  <p>Spor modu <strong>kullanıcının seçtiği hedefe göre</strong> farklı kural seti uygular. Aynı ürün, "kas kazanımı"
+    hedefiyle farklı, "yağ yakımı" hedefiyle farklı puan alabilir.</p>
+  <p>Değerlendirme yöntemi: <strong>Taban skor 50</strong> olarak başlar. Hedefe özel kurallar pozitif veya negatif
+    yönde değerleri ayarlar.</p>
   <p><strong>Dört hedef ve örnek kuralları:</strong></p>
   <ul>
-    <li><strong>Kas Kazanımı:</strong> Yüksek protein (&gt;25g) puanı yukarı çeker, yüksek şeker (&gt;15g) ve ultra-işlenmiş gıda (NOVA Grup 4) puanı aşağı çeker.</li>
-    <li><strong>Yağ Yakımı:</strong> Düşük kalori, yüksek protein ve düşük şeker pozitif; yüksek yağ ve karbonhidrat negatif.</li>
-    <li><strong>Performans:</strong> Kompleks karbonhidrat ve elektrolit dengesi pozitif; yapay tatlandırıcı ve katkı maddeleri negatif.</li>
-    <li><strong>Genel Sağlık:</strong> NOVA Grup 1-2 (işlenmemiş veya minimum işlenmiş) ürünler pozitif; ultra-işlenmiş ürünler ve fazla katkı negatif.</li>
+    <li><strong>Kas Kazanımı:</strong> Yüksek protein (&gt;25g) puanı yukarı çeker, yüksek şeker (&gt;15g) ve
+      ultra-işlenmiş gıda (NOVA Grup 4) puanı aşağı çeker.</li>
+    <li><strong>Yağ Yakımı:</strong> Düşük kalori, yüksek protein ve düşük şeker pozitif; yüksek yağ ve karbonhidrat
+      negatif.</li>
+    <li><strong>Performans:</strong> Kompleks karbonhidrat ve elektrolit dengesi pozitif; yapay tatlandırıcı ve katkı
+      maddeleri negatif.</li>
+    <li><strong>Genel Sağlık:</strong> NOVA Grup 1-2 (işlenmemiş veya minimum işlenmiş) ürünler pozitif; ultra-işlenmiş
+      ürünler ve fazla katkı negatif.</li>
   </ul>
   <p><strong>Sonuç eşikleri:</strong></p>
   <ul>
@@ -78,7 +162,9 @@
     <li><strong>40-69:</strong> ORTA — dikkatli tüketim önerilir.</li>
     <li><strong>40 altı:</strong> ALMA — hedefinize uygun değil.</li>
   </ul>
-  <p><strong>Önemli sınırlama:</strong> Spor modu <strong>kişiselleştirilmiş diyet planı değildir</strong>. Antrenman programınız, vücut kompozisyonunuz, kronik hastalıklarınız ve günlük kalori ihtiyacınız değerlendirmeye dahil edilmez. Bireysel beslenme planı için <strong>diyetisyen veya spor hekimine</strong> danışınız.</p>
+  <p><strong>Önemli sınırlama:</strong> Spor modu <strong>kişiselleştirilmiş diyet planı değildir</strong>. Antrenman
+    programınız, vücut kompozisyonunuz, kronik hastalıklarınız ve günlük kalori ihtiyacınız değerlendirmeye dahil
+    edilmez. Bireysel beslenme planı için <strong>diyetisyen veya spor hekimine</strong> danışınız.</p>
   <p><strong>Kaynaklar:</strong></p>
   <ul>
     <li>NOVA Sınıflandırması — Monteiro vd., São Paulo Üniversitesi, Public Health Nutrition (2018)</li>
@@ -89,25 +175,33 @@
   <h2>Çocuk Modu</h2>
   <p><strong>Hedef kitle:</strong> 0-12 yaş çocukların beslenmesini takip eden ebeveynler.</p>
   <p><strong>Nasıl çalışır:</strong></p>
-  <p>Çocuk modu <strong>tehlike sayma (danger-count)</strong> mantığıyla çalışır. <strong>Taban skor 100</strong> olarak başlar; üründe tespit edilen her risk faktörü puanı düşürür.</p>
+  <p>Çocuk modu <strong>tehlike sayma (danger-count)</strong> mantığıyla çalışır. <strong>Taban skor 100</strong> olarak
+    başlar; üründe tespit edilen her risk faktörü puanı düşürür.</p>
   <p><strong>Risk seviyeleri ve etki:</strong></p>
   <ul>
-    <li><strong>KRİTİK risk:</strong> Her tespit için <strong>−25 puan</strong>. Örnek: bebek için kafein, ultra-işlenmiş tatlandırıcı, yüksek sodyum.</li>
-    <li><strong>ORTA risk:</strong> Her tespit için <strong>−10 puan</strong>. Örnek: yapay renk maddeleri, yüksek şeker.</li>
-    <li><strong>DÜŞÜK risk:</strong> Her tespit için <strong>−3 puan</strong>. Örnek: az miktarda katkı maddesi, sınırda tuz.</li>
+    <li><strong>KRİTİK risk:</strong> Her tespit için <strong>−25 puan</strong>. Örnek: bebek için kafein,
+      ultra-işlenmiş tatlandırıcı, yüksek sodyum.</li>
+    <li><strong>ORTA risk:</strong> Her tespit için <strong>−10 puan</strong>. Örnek: yapay renk maddeleri, yüksek
+      şeker.</li>
+    <li><strong>DÜŞÜK risk:</strong> Her tespit için <strong>−3 puan</strong>. Örnek: az miktarda katkı maddesi, sınırda
+      tuz.</li>
   </ul>
   <p><strong>Yaş grubuna göre eşik:</strong></p>
-  <p>Risk değerlendirmesi yaş grubuna göre değişir. Aynı içerik 6-12 yaş için orta risk olabilirken, 0-1 yaş bebek için kritik risk olabilir. Örneğin <strong>bebek_0_1</strong> grubunda ürün şeker içeriyorsa, sayısal puan ne olursa olsun sonuç doğrudan UYGUN_DEĞİL kategorisine düşer.</p>
+  <p>Risk değerlendirmesi yaş grubuna göre değişir. Aynı içerik 6-12 yaş için orta risk olabilirken, 0-1 yaş bebek için
+    kritik risk olabilir. Örneğin <strong>bebek_0_1</strong> grubunda ürün şeker içeriyorsa, sayısal puan ne olursa
+    olsun sonuç doğrudan UYGUN_DEĞİL kategorisine düşer.</p>
   <p><strong>Sonuç eşikleri:</strong></p>
   <ul>
     <li><strong>75 ve üzeri:</strong> UYGUN — yaş grubunuz için güvenli kabul edilir.</li>
     <li><strong>40-74:</strong> DİKKATLİ — sınırlı miktar veya seyrek tüketim.</li>
     <li><strong>40 altı:</strong> UYGUN_DEĞİL — bu yaş grubunda önerilmez.</li>
   </ul>
-  <p><strong>Önemli sınırlama:</strong> Çocuk modu <strong>pediatrik beslenme tavsiyesi değildir</strong>. Bebek ve çocuk beslenmesi konusunda <strong>pediatrist veya çocuk diyetisyenine</strong> mutlaka danışınız. Özellikle:</p>
+  <p><strong>Önemli sınırlama:</strong> Çocuk modu <strong>pediatrik beslenme tavsiyesi değildir</strong>. Bebek ve
+    çocuk beslenmesi konusunda <strong>pediatrist veya çocuk diyetisyenine</strong> mutlaka danışınız. Özellikle:</p>
   <ul>
     <li><strong>0-6 ay:</strong> Yalnız anne sütü dönemi. Uygulamamızın bu yaş için ayrı modu yoktur.</li>
-    <li><strong>6-12 ay:</strong> İlk ek gıda dönemi. Formülümüz bu hassas dönemin tüm ihtiyaçlarını tam karşılayamaz.</li>
+    <li><strong>6-12 ay:</strong> İlk ek gıda dönemi. Formülümüz bu hassas dönemin tüm ihtiyaçlarını tam karşılayamaz.
+    </li>
     <li><strong>Alerjik bünye, prematüre doğum, kronik hastalık:</strong> Mutlaka uzman değerlendirmesi gerekir.</li>
   </ul>
   <p><strong>Kaynaklar:</strong></p>
@@ -121,11 +215,13 @@
   <hr>
 
   <h2>Veri Güncelliği</h2>
-  <p>Her ürün değerlendirmesi, <strong>üreticinin paket beyanının son güncellendiği tarih</strong> üzerinden yapılır. Üretici formülünü zaman içinde değiştirebilir; bu durumda eski değerlendirme güncel olmayabilir.</p>
+  <p>Her ürün değerlendirmesi, <strong>üreticinin paket beyanının son güncellendiği tarih</strong> üzerinden yapılır.
+    Üretici formülünü zaman içinde değiştirebilir; bu durumda eski değerlendirme güncel olmayabilir.</p>
   <ul>
     <li><strong>0-60 gün:</strong> Veri taze kabul edilir.</li>
     <li><strong>60-180 gün:</strong> Damgada "ESKİ" uyarısı görünür. Üreticiye doğrulamanız önerilir.</li>
-    <li><strong>180+ gün:</strong> "YENİLENMESİ GEREKİYOR" uyarısı görünür. Bu değerlendirmeyi güvenle kullanmamanızı tavsiye ederiz.</li>
+    <li><strong>180+ gün:</strong> "YENİLENMESİ GEREKİYOR" uyarısı görünür. Bu değerlendirmeyi güvenle kullanmamanızı
+      tavsiye ederiz.</li>
   </ul>
   <p>Veri kaynaklarımız üç kategoride:</p>
   <ul>
@@ -133,7 +229,8 @@
     <li><strong>Open Food Facts:</strong> Topluluk kaynaklı uluslararası veritabanı.</li>
     <li><strong>Kullanıcı taramaları:</strong> Doğrulanmamış kullanıcı katkıları, ayrı işaretlenir.</li>
   </ul>
-  <p>Paylaşım kartlarında görünen şeker küpü karşılığı yaklaşık bir görsel kıyastır: <strong>1 küp şeker ≈ 4 g şeker</strong> kabul edilir ve paket/porsiyon verisi üretici beyanına göre hesaplanır.</p>
+  <p>Paylaşım kartlarında görünen şeker küpü karşılığı yaklaşık bir görsel kıyastır: <strong>1 küp şeker ≈ 4 g
+      şeker</strong> kabul edilir ve paket/porsiyon verisi üretici beyanına göre hesaplanır.</p>
 
   <hr>
 
@@ -148,7 +245,8 @@
     <li>Helal modu fetva veya sertifika niteliği taşımaz</li>
     <li>Çocuk modu pediatrik teşhis veya tedavi önerisi değildir</li>
   </ul>
-  <p>Bu konularda <strong>hekim, diyetisyen, pediatrist veya helal sertifikasyon kuruluşuna</strong> danışmanız gerekir.</p>
+  <p>Bu konularda <strong>hekim, diyetisyen, pediatrist veya helal sertifikasyon kuruluşuna</strong> danışmanız gerekir.
+  </p>
 
   <hr>
 
@@ -156,7 +254,8 @@
   <p>Bir üründe yanlış bilgi olduğunu düşünüyorsanız:</p>
   <ul>
     <li><strong>Kullanıcı olarak:</strong> Ürün ekranındaki "Bilgi yanlış mı?" butonuna basın.</li>
-    <li><strong>Üretici olarak:</strong> <a href="mailto:itiraz@gettemiz.com">itiraz@gettemiz.com</a> adresine yazın. 48 saat içinde dönüş yaparız.</li>
+    <li><strong>Üretici olarak:</strong> <a href="mailto:itiraz@gettemiz.com">itiraz@gettemiz.com</a> adresine yazın. 48
+      saat içinde dönüş yaparız.</li>
   </ul>
   <p>Tüm düzeltme talepleri kayıt altına alınır. Kabul edilen düzeltmeler 7 gün içinde uygulamaya yansır.</p>
 
@@ -166,19 +265,25 @@
   <ul>
     <li><strong>v1.0.0</strong> (29 Nisan 2026): İlk yayın metodolojisi.</li>
   </ul>
-  <p>İleride değerlendirme algoritmasında önemli değişiklik olursa, mevcut kullanıcılarımıza bildirim göndereceğiz ve yeni versiyon onayı isteyeceğiz.</p>
+  <p>İleride değerlendirme algoritmasında önemli değişiklik olursa, mevcut kullanıcılarımıza bildirim göndereceğiz ve
+    yeni versiyon onayı isteyeceğiz.</p>
 
   <hr>
 
   <h2>Yasal Bildirim</h2>
-  <p>Temiz'in değerlendirmesi, üreticinin ambalaj beyanına dayanır. Üretici bilgileri zaman içinde değişebilir; her ürün ekranında son güncelleme tarihini görürsünüz. Bireysel sağlık, dini ve diyet kararları için uzman desteği alınız.</p>
-  <p>Temiz, ne sertifikasyon kuruluşu ne tıbbi otorite ne de fetva makamıdır. Açık akademik standartları ve fıkhi içtihadı kullanan bağımsız bir bilgilendirme aracıdır.</p>
+  <p>Temiz'in değerlendirmesi, üreticinin ambalaj beyanına dayanır. Üretici bilgileri zaman içinde değişebilir; her ürün
+    ekranında son güncelleme tarihini görürsünüz. Bireysel sağlık, dini ve diyet kararları için uzman desteği alınız.
+  </p>
+  <p>Temiz, ne sertifikasyon kuruluşu ne tıbbi otorite ne de fetva makamıdır. Açık akademik standartları ve fıkhi
+    içtihadı kullanan bağımsız bir bilgilendirme aracıdır.</p>
 
   <p class="footer">
     İletişim: <a href="mailto:itiraz@gettemiz.com">itiraz@gettemiz.com</a> &nbsp;|&nbsp;
     <a href="/privacy.html">Gizlilik</a> &nbsp;|&nbsp;
     <a href="/terms.html">Kullanım Koşulları</a> &nbsp;|&nbsp;
+    <a href="/delete-account.html">Hesap Silme</a> &nbsp;|&nbsp;
     <a href="/">Ana Sayfa</a>
   </p>
 </body>
+
 </html>

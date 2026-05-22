@@ -3,201 +3,400 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Temiz — Bekleme Listesi</title>
+  <title>Temiz — Ne yediğini biliyor musun?</title>
   <meta name="description" content="Türkiye için yapay zeka destekli paketli gıda etiketi tarayıcı. Helal, spor ve çocuk modu ile paketli ürünleri tara, ne yediğini anla.">
+
+  <meta property="og:title" content="Temiz — Ne yediğini biliyor musun?">
+  <meta property="og:description" content="Paketli ürünleri tara, ne yediğini anla. Helal, spor ve çocuk modu.">
+  <meta property="og:image" content="https://gettemiz.com/logo.png">
+  <meta property="og:url" content="https://gettemiz.com/bekleme.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="canonical" href="https://gettemiz.com/bekleme.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg: #F5F5F0;
+      --ink: #1C1C1E;
+      --ink-soft: #2A2A2D;
+      --muted: #4B5563;
+      --muted-soft: #6B7280;
+      --hairline: #E5E5DC;
+      --sage: #7D8F82;
+      --sage-deep: #5C6E61;
+      --danger: #B91C1C;
+      --radius: 14px;
+      --shadow-soft: 0 1px 2px rgba(28, 28, 30, 0.04), 0 4px 24px rgba(28, 28, 30, 0.06);
+    }
+
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #F5F5F0;
-      color: #1C1C1E;
-      min-height: 100vh;
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-feature-settings: 'ss01', 'ss02', 'cv11';
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100dvh;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Subtle grain overlay — breaks digital flatness without being noisy */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.4;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.11 0 0 0 0 0.12 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Ambient sage glow — centered, subtle depth */
+    body::after {
+      content: "";
+      position: fixed;
+      top: -25%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90vw;
+      height: 90vw;
+      max-width: 900px;
+      max-height: 900px;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(circle, rgba(125, 143, 130, 0.14) 0%, rgba(125, 143, 130, 0) 65%);
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      min-height: 100dvh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 32px 20px 24px;
+    }
+
+    .stage {
+      display: grid;
+      place-items: center;
+      width: 100%;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+      display: grid;
+      gap: 28px;
+    }
+
+    /* Header block */
+    .header {
+      display: grid;
+      gap: 14px;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    h1 {
+      font-size: clamp(34px, 7vw, 46px);
+      font-weight: 700;
+      margin: 4px 0 0;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+      color: var(--ink);
+    }
+    h1 em {
+      font-style: italic;
+      font-weight: 600;
+      color: var(--sage-deep);
+    }
+
+    .tagline {
+      font-size: 17px;
+      color: var(--muted);
+      margin: 0 auto;
+      max-width: 38ch;
+      line-height: 1.5;
+      text-wrap: pretty;
+    }
+
+    .modes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+      justify-content: center;
+    }
+    .mode-chip {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sage-deep);
+      background: rgba(125, 143, 130, 0.10);
+      border: 1px solid rgba(125, 143, 130, 0.18);
+      padding: 5px 11px;
+      border-radius: 999px;
+      letter-spacing: -0.005em;
+    }
+
+    /* Count — social proof */
+    .count {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 13px;
+      color: var(--muted-soft);
+      font-weight: 500;
+      letter-spacing: -0.01em;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px 16px;
-      line-height: 1.5;
-    }
-    .card {
-      width: 100%;
-      max-width: 440px;
-      text-align: center;
-    }
-    .logo {
-      width: 112px;
-      height: 112px;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 22px;
-    }
-    .brand-name {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: #7D8F82;
-      margin-top: 16px;
-      margin-bottom: 8px;
-    }
-    h1 {
-      font-size: 28px;
-      font-weight: 800;
-      margin: 0 0 12px;
-      line-height: 1.25;
-      letter-spacing: -0.5px;
-    }
-    .tagline {
-      font-size: 15px;
-      color: #4B5563;
-      margin: 0 0 18px;
-      line-height: 1.5;
-    }
-    .modes {
-      font-size: 14px;
-      color: #7D8F82;
-      font-weight: 600;
-      margin-bottom: 22px;
-      letter-spacing: 0.2px;
-    }
-    .desc {
-      font-size: 15px;
-      color: #4B5563;
-      margin-bottom: 28px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    input[type="email"] {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid #D1D5DB;
-      border-radius: 12px;
-      font-size: 16px;
-      background: #FFFFFF;
-      color: #1C1C1E;
-      outline: none;
-      transition: border-color 0.15s;
-    }
-    input[type="email"]:focus {
-      border-color: #7D8F82;
-    }
-    button {
-      width: 100%;
-      padding: 14px 16px;
-      border: 0;
-      border-radius: 12px;
-      background: #1C1C1E;
-      color: #F5F5F0;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.15s;
-    }
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-    .error {
-      color: #B91C1C;
-      font-size: 14px;
-      margin-top: 4px;
-      min-height: 18px;
-    }
-    .kvkk {
-      font-size: 12px;
-      color: #9CA3AF;
-      margin-top: 16px;
-      line-height: 1.5;
-    }
-    .count {
-      font-size: 13px;
-      color: #7D8F82;
-      margin-bottom: 20px;
-      font-weight: 600;
+      gap: 8px;
     }
     .count.hidden { display: none; }
+    .count::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sage);
+      box-shadow: 0 0 0 3px rgba(125, 143, 130, 0.2);
+    }
+
+    /* Form */
+    .form-section {
+      display: grid;
+      gap: 14px;
+    }
+    .form-section.hidden { display: none; }
+
+    form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-family: inherit;
+      background: #FFFFFF;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+      box-shadow: var(--shadow-soft);
+    }
+    input[type="email"]::placeholder {
+      color: #9CA3AF;
+    }
+    input[type="email"]:hover {
+      border-color: #D1D1C5;
+    }
+    input[type="email"]:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 4px rgba(125, 143, 130, 0.15), var(--shadow-soft);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px 16px;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--bg);
+      font-size: 16px;
+      font-weight: 600;
+      font-family: inherit;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      transition: transform 120ms ease, background 180ms ease, opacity 180ms ease;
+      box-shadow: 0 1px 2px rgba(28, 28, 30, 0.18), 0 8px 24px rgba(28, 28, 30, 0.10);
+    }
+    button:hover { background: var(--ink-soft); }
+    button:active { transform: translateY(1px); }
+    button:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 2px;
+    }
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .error {
+      color: var(--danger);
+      font-size: 14px;
+      min-height: 18px;
+      letter-spacing: -0.005em;
+    }
+
+    .kvkk {
+      font-size: 12.5px;
+      color: var(--muted-soft);
+      line-height: 1.55;
+      margin: 0 auto;
+      max-width: 40ch;
+      text-align: center;
+    }
+
+    /* Success state */
     .success {
       display: none;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
-      padding: 12px 0;
+      text-align: center;
+      gap: 14px;
+      padding: 24px 20px;
+      background: rgba(125, 143, 130, 0.08);
+      border: 1px solid rgba(125, 143, 130, 0.20);
+      border-radius: var(--radius);
     }
     .success.show { display: flex; }
     .check {
-      width: 64px;
-      height: 64px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: #7D8F82;
+      background: var(--sage-deep);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #F5F5F0;
-      font-size: 32px;
-      font-weight: 800;
+      color: var(--bg);
     }
+    .check svg { width: 20px; height: 20px; }
     .success-text {
       font-size: 16px;
-      color: #1C1C1E;
+      color: var(--ink);
       font-weight: 600;
+      letter-spacing: -0.01em;
     }
-    .footer {
-      margin-top: 40px;
-      font-size: 12px;
-      color: #9CA3AF;
+    .success-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
     }
-    .footer a {
-      color: #7D8F82;
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding-top: 32px;
+      font-size: 12.5px;
+      color: var(--muted-soft);
+      letter-spacing: -0.005em;
+    }
+    footer a {
+      color: var(--sage-deep);
       text-decoration: none;
+      transition: color 150ms ease;
     }
-    .form-section.hidden { display: none; }
+    footer a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    .footer-sep { color: var(--hairline); margin: 0 8px; }
+
+    @media (min-width: 640px) {
+      main { padding: 48px 24px 32px; }
+      .card { gap: 32px; }
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <img src="/logo.png" alt="Temiz" class="logo" width="112" height="112">
-    <div class="brand-name">TEMİZ</div>
-    <h1>Ne yediğini biliyor musun?</h1>
-    <p class="tagline">Türkiye için yapay zeka destekli paketli gıda etiketi tarayıcı</p>
-    <div class="modes">Helal · Spor · Çocuk modu</div>
-    <p class="desc">Paketli ürünleri tara, ne yediğini anla. Lansmana hazırlanıyoruz — ilk haberdar olmak için kaydol.</p>
+  <main>
+    <div class="stage">
+      <div class="card">
+        <header class="header">
+          <div class="logo-row">
+            <img src="logo.png" alt="Temiz logosu" class="logo" width="64" height="64">
+            <span class="brand">Temiz</span>
+          </div>
+          <h1>Ne yediğini <em>biliyor musun?</em></h1>
+          <p class="tagline">Türkiye için yapay zeka destekli paketli gıda etiketi tarayıcı. Paketli ürünleri tara, ne yediğini anla.</p>
+          <div class="modes" aria-label="Modlar">
+            <span class="mode-chip">Helal</span>
+            <span class="mode-chip">Spor</span>
+            <span class="mode-chip">Çocuk</span>
+          </div>
+        </header>
 
-    <div id="count" class="count hidden"></div>
+        <div id="count" class="count hidden" aria-live="polite"></div>
 
-    <div id="form-section" class="form-section">
-      <form id="waitlist-form" novalidate>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="e-posta adresin"
-          required
-          autocomplete="email"
-          aria-label="E-posta adresi"
-        >
-        <button type="submit" id="submit-btn">Bekleme listesine katıl</button>
-      </form>
-      <div id="error" class="error" role="alert"></div>
-      <p class="kvkk">
-        E-posta adresin yalnızca Temiz lansmanı bilgilendirmesi için kullanılır.
-        İstediğin zaman aboneliğini iptal edebilirsin.
-      </p>
+        <section id="form-section" class="form-section" aria-label="Bekleme listesi formu">
+          <form id="waitlist-form" novalidate>
+            <div class="input-wrap">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="e-posta adresin"
+                required
+                autocomplete="email"
+                aria-label="E-posta adresi"
+              >
+            </div>
+            <button type="submit" id="submit-btn">Bekleme listesine katıl</button>
+          </form>
+          <div id="error" class="error" role="alert"></div>
+          <p class="kvkk">
+            E-posta adresin yalnızca Temiz lansmanı bilgilendirmesi için kullanılır. İstediğin zaman aboneliğini iptal edebilirsin.
+          </p>
+        </section>
+
+        <div id="success" class="success" role="status">
+          <div class="check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div>
+            <div class="success-text">Listeye eklendin.</div>
+            <p class="success-sub">Lansman gününde ilk haber sana gelecek.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="success" class="success">
-      <div class="check">✓</div>
-      <div class="success-text">Teşekkürler! Lansmanda ilk haberdar olacaksın.</div>
-    </div>
-
-    <div class="footer">
-      <a href="/privacy.html">Gizlilik</a> ·
+    <footer>
+      <a href="/metodoloji.html">Metodoloji</a>
+      <span class="footer-sep">·</span>
+      <a href="/privacy.html">Gizlilik</a>
+      <span class="footer-sep">·</span>
       <a href="/terms.html">Şartlar</a>
-    </div>
-  </div>
+    </footer>
+  </main>
 
   <script>
     (function () {
@@ -211,12 +410,10 @@
       const successEl = document.getElementById('success');
       const countEl = document.getElementById('count');
 
-      // ?src=instagram, ?src=tiktok ... — kanal kaynağını yakala
       const params = new URLSearchParams(window.location.search);
       const rawSrc = params.get('src') || '';
       const source = /^[a-zA-Z0-9_-]{1,32}$/.test(rawSrc) ? rawSrc.toLowerCase() : null;
 
-      // Sayaç — count < 10 ise gizle (boş listede sosyal kanıt ters etki yapar)
       fetch(API_BASE + '/waitlist/count')
         .then((r) => r.ok ? r.json() : null)
         .then((data) => {
@@ -240,7 +437,6 @@
         e.preventDefault();
         showError('');
         const email = (emailInput.value || '').trim();
-        // Client-side hızlı kontrol — server'ın regex'i ile aynı
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
           showError('Geçerli bir e-posta adresi gir.');
           return;
